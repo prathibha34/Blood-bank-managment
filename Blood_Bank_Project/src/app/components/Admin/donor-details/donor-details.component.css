@@ -1,0 +1,63 @@
+.custom-ag-grid .ag-cell {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+.custom-ag-grid .ag-header-cell {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+.custom-ag-grid .ag-root-wrapper {
+  margin-left: -2px !important;
+  margin-right: -2px !important;
+}
+
+.custom-ag-grid .ag-pinned-left-cols-viewport,
+.custom-ag-grid .ag-pinned-right-cols-viewport,
+.custom-ag-grid .ag-body-viewport {
+  margin-left: -2px !important;
+  margin-right: -2px !important;
+}
+
+.custom-ag-grid .ag-pinned-left-cols-container,
+.custom-ag-grid .ag-pinned-right-cols-container,
+.custom-ag-grid .ag-body-container {
+  transform: translateX(2px) !important;
+}
+
+.grid-container {
+  height: 90vh; /* Adjust as needed */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+:host ::ng-deep .ag-theme-alpine .ag-header {
+  width: fit-content;
+  background-color: rgb(248, 75, 75) !important;
+  color: white !important;
+}
+
+:host ::ng-deep .ag-theme-alpine .ag-row {
+  background-color: rgb(253, 251, 251) !important;
+  color: rgb(10, 10, 10) !important;
+}
+
+:host ::ng-deep .ag-theme-alpine .ag-header-cell {
+  min-width: unset !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+:host ::ng-deep .ag-theme-alpine .ag-cell {
+  min-width: unset !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
+
+/* :host ::ng-deep .ag-theme-alpine .ag-root {
+  background-color: bisque !important;
+} */

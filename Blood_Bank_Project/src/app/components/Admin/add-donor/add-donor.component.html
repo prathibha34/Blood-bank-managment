@@ -1,0 +1,143 @@
+<div class=" d-flex justify-content-center align-items-center " style='height: 700px;  overflow: hidden;'>
+  <mat-card class="w-75 h-75 shadow-1 "  >
+    <h2 class="text-center"><span class="material-icons" style="color: rgb(255, 0, 0);">person_add</span> Add Donor</h2>
+
+    <form [formGroup]="donorForm" #form="ngForm" (ngSubmit)="submitForm()" class="custom-form">
+      <div class="flex flex-wrap row">
+        <div class="w-full col-6 px-2">
+          <!-- Donor Name field -->
+          <div class="form-field">
+            <mat-form-field appearance="outline" style="width: 100%;">
+              <mat-label>Donor Name</mat-label>
+              <input matInput formControlName="donar_name" placeholder="Enter Name" required>
+              <mat-error *ngIf="donorForm.controls['donar_name'].invalid && (donorForm.controls['donar_name'].dirty || donorForm.controls['donar_name'].touched)">
+                <span *ngIf="donorForm.controls['donar_name'].hasError('required')">Donor Name is required</span>
+                <span *ngIf="donorForm.controls['donar_name'].hasError('minlength')">Donor Name should have a minimum of 4 characters</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="w-full col-6 px-2">
+          <!-- Blood Group field -->
+          <div class="form-field">
+            <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Blood Group</mat-label>
+            <mat-select formControlName="blood_type" placeholder="Select Blood Group" required>
+              <mat-option *ngFor="let item of blood" [value]=item>{{item.blood_group_type}}</mat-option>
+              <!-- <mat-option value="A-">A-</mat-option>
+              <mat-option value="B+">B+</mat-option>
+              <mat-option value="B-">B-</mat-option>
+              <mat-option value="AB+">AB+</mat-option>
+              <mat-option value="AB-">AB-</mat-option>
+              <mat-option value="O+">O+</mat-option>
+              <mat-option value="O-">O-</mat-option> -->
+            </mat-select>
+            <mat-error *ngIf="donorForm.controls['blood_type'].invalid && (donorForm.controls['blood_type'].dirty || donorForm.controls['blood_type'].touched)">
+              <span *ngIf="donorForm.controls['blood_type'].hasError('required')">Blood Group is required</span>
+            </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    <div class="flex flex-wrap row">
+      <div class="w-full col-6 px-2">
+        <!-- Donor Age field -->
+        <div class="form-field">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Donor Age</mat-label>
+            <input matInput formControlName="age" placeholder="Enter Age" required>
+            <mat-error *ngIf="donorForm.controls['age'].invalid && (donorForm.controls['age'].dirty || donorForm.controls['age'].touched)">
+              <span *ngIf="donorForm.controls['age'].hasError('required')">Donor Age is required</span>
+              <span *ngIf="donorForm.controls['age'].hasError('min')">Donor Age should be above 18</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        </div>
+          <div class="w-full col-6 px-2">
+            <div class="form-field">
+             <mat-form-field appearance="outline" style="width: 100%;">
+             <mat-label>Gender</mat-label>
+             <mat-select mat-select formControlName="gender" required>
+              <mat-option value="">Select Gender</mat-option>
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="other">Other</mat-option>
+             </mat-select>
+             <mat-error *ngIf="donorForm.controls['gender'].hasError('required')">
+              Gender is required
+             </mat-error>
+             </mat-form-field>
+            </div>
+          </div>
+      </div>
+      <div class="flex flex-wrap row">
+        <div class="w-full col-6 px-2">
+          <div class="form-field">
+           <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Aadhar Number</mat-label>
+            <input matInput formControlName="aadhar_number" placeholder="Enter aadhar number" required>
+              <mat-error *ngIf="donorForm.controls['aadhar_number'].invalid && (donorForm.controls['aadhar_number'].dirty || donorForm.controls['aadhar_number'].touched)">
+                <span *ngIf="donorForm.controls['aadhar_number'].hasError('required')">aadhar number is required</span>
+                <span *ngIf="donorForm.controls['aadhar_number'].hasError('pattern')">aadhar number must be 12 digit</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="w-full col-6 px-2">
+          <div class="form-field">
+            <mat-form-field appearance="outline" style="width: 100%;">
+              <mat-label>Transfusion Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="transfusion_date" placeholder="Select Date" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="donorForm.controls['transfusion_date'].invalid && (donorForm.controls['transfusion_date'].dirty || donorForm.controls['transfusion_date'].touched)">
+                Transfusion Date is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    <div class="flex flex-wrap row">
+      <div class="w-full col-4 px-2">
+        <div class="form-field">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Blood Bank</mat-label>
+            <input matInput formControlName="bloodBank"  [value]="bloodBank" readonly required >
+            <mat-error
+              *ngIf="donorForm.controls['bloodBank'].invalid && (donorForm.controls['bloodBank'].dirty || donorForm.controls['bloodBank'].touched)">
+              Blood Bank is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="w-full col-4 px-2">
+        <div class="form-field">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Units</mat-label>
+            <input matInput formControlName="units" placeholder="Enter units" required>
+            <mat-error
+              *ngIf="donorForm.controls['units'].invalid && (donorForm.controls['units'].dirty || donorForm.controls['units'].touched)">
+              Units is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="w-full col-4 px-2">
+        <div class="form-field">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>Contact Number</mat-label>
+            <input matInput formControlName="contact_number" placeholder="Enter Contact Number" required>
+            <mat-error *ngIf="donorForm.controls['contact_number'].invalid && (donorForm.controls['contact_number'].dirty || donorForm.controls['contact_number'].touched)">
+              <span *ngIf="donorForm.controls['contact_number'].hasError('required')">phone number is required</span>
+              <span *ngIf="donorForm.controls['contact_number'].hasError('pattern')">phone number must be 10 digit</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+    <button style="text-align: center;" class=" btn btn-primary" type="submit">Submit</button>
+  </div>
+  </form>
+</mat-card>
+</div>

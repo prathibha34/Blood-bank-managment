@@ -1,0 +1,25 @@
+.conatiner-fluid{
+  background-color: whitesmoke;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input.form-control,
+select.form-control {
+  padding: 5px;
+}
+
+.text-center {
+  margin-top: 20px;
+}
+
+button[type="reset"] {
+  margin-left: 10px;
+}
+

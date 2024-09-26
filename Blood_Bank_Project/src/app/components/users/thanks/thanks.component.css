@@ -1,0 +1,17 @@
+img, svg {
+  vertical-align: middle;
+  height: 350px;
+  width:350px;
+}
+.container-fluid{
+  background-color: whitesmoke;
+}
+
+.gradient {
+  background: linear-gradient(to right, #FF0000, #e06969);
+  color:white;
+  border-color:whitesmoke;
+  height: 50px;
+  width:150px;
+  border-radius: 50px;
+}

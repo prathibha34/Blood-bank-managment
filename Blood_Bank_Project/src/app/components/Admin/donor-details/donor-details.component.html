@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+        <input type="text" class="form-control" [(ngModel)]="searchValue" (input)="onSearch()" placeholder="Search">
+      </div>
+    </div>
+
+
+  </div>
+  <div class="row justify-content-center mt-4 m-0 p-0">
+    <div class="col-md-12">
+      <div class="custom-grid-wrapper">
+        <ag-grid-angular #agGrid
+          style="height: 600px;"
+          class="ag-theme-alpine custom-ag-grid"
+          [gridOptions]="gridOptions"
+          [rowData]="rowData">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+
+</div>

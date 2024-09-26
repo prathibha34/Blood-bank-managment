@@ -1,0 +1,90 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 image">
+      <img src="assets/register.svg">
+    </div>
+    <div class="col-md-6 form-container">
+
+      <!-- registration form start -->
+      <h1><i class="fas fa-user-plus" style="color: #EA4C46;"></i> &nbsp;<b>Register</b></h1>
+
+      <form [formGroup]="registrationForm" (ngSubmit)="submitForm()" #form="ngForm">
+
+        <!-- first name field start -->
+        <div>
+          <b><label for="firstName"><i class="fas fa-user"></i> First Name:</label></b>
+          <div *ngIf="submitted || registrationForm.get('first_name')?.touched && registrationForm.get('first_name')?.hasError('required')" class="error-message">
+            <div *ngIf="registrationForm.get('first_name')?.dirty && registrationForm.get('first_name')?.errors?.['pattern']">
+              Only alphabets are allowed in the first name.
+            </div>
+            <div *ngIf="registrationForm.get('first_name')?.hasError('required')">
+              First name is required.
+            </div>
+          </div>
+          <input type="text" id="first_name" formControlName="first_name" class="form-control">
+        </div>
+
+        <div>
+          <b><label for="last_name"><i class="fas fa-user"></i> Last Name:</label></b>
+          <div *ngIf="submitted || registrationForm.get('last_name')?.touched && registrationForm.get('last_name')?.hasError('required')" class="error-message">
+            <div *ngIf="registrationForm.get('last_name')?.hasError('required')">Last name is required.</div>
+            <div *ngIf="registrationForm.get('last_name')?.dirty && registrationForm.get('last_name')?.errors?.['pattern']" class="error-message">
+              Only alphabets are allowed in the last name.
+            </div>
+          </div>
+          <input type="text" id="last_name" formControlName="last_name" class="form-control">
+        </div>
+
+        <!-- email field start -->
+        <div>
+          <b><label for="email"><i class="fas fa-envelope"></i> Email ID:</label></b>
+          <div *ngIf="submitted || registrationForm.get('email')?.touched && registrationForm.get('email')?.errors?.['required']" class="error-message">
+            <div *ngIf="registrationForm.get('email')?.errors?.['required']">
+              Email ID is required.
+            </div>
+            <div *ngIf="registrationForm.get('email')?.touched && registrationForm.get('email')?.errors?.['email']" class="error-message">
+              Invalid email format.
+            </div>
+          </div>
+          <input type="email" id="email" formControlName="email" class="form-control">
+        </div>
+        <!-- email field end -->
+
+        <!-- password field start -->
+        <div>
+          <b><label for="password"><i class="fas fa-lock"></i> Password:</label></b>
+          <div *ngIf="submitted || registrationForm.get('password')?.touched && registrationForm.get('password')?.errors?.['required']" class="error-message">
+            <div *ngIf="registrationForm.get('password')?.errors?.['required']">
+              Password is required
+            </div>
+            <div *ngIf="registrationForm.get('password')?.errors?.['minlength']">
+              Please enter a minimum of 8 characters.
+            </div>
+          </div>
+          <div class="input-container">
+            <input type="password" id="password" formControlName="password" class="form-control">
+          </div>
+        </div>
+        <!-- password field end -->
+
+        <div>
+          <b><label for="password"><i class="fas fa-lock"></i> Confirm Password:</label></b>
+          <div *ngIf="submitted || registrationForm.get('confirmPassword')?.touched && registrationForm.get('confirmPassword')?.errors?.['required']" class="error-message">
+            <div *ngIf="registrationForm.get('confirmPassword')?.errors?.['required']">
+              Please enter the password again.
+            </div>
+            <div *ngIf="registrationForm.get('confirmPassword')?.errors?.['passwordMismatch']">
+              Passwords do not match.
+            </div>
+          </div>
+          <div class="input-container">
+            <input type="password" id="password" formControlName="confirmPassword" class="form-control">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Register</button>
+      </form>
+    </div>
+  </div>
+</div>

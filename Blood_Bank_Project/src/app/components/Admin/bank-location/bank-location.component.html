@@ -1,0 +1,17 @@
+
+<div class="row mt-5">
+  <div *ngFor="let group of total" class="col-12 col-md-6 col-lg-3">
+    <div class="card m-3 p-3 bg-super-light">
+      <div class="card-body">
+        <h1 class="card-title fw-6 fs-bold text-end" style="font-size: 40px;">
+          <span class="material-icons" style="color: rgb(255, 0, 0); font-size: 41px;">water_drop</span>
+          {{ group.blood_type?.blood_group_type }}
+        </h1>
+        <h3 class="card-subtitle mb-2 fs-bold">Total-Units Available: {{ group.total_units }}</h3>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

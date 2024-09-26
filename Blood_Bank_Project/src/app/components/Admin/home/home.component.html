@@ -1,0 +1,66 @@
+<div class="row justify-content-evenly mt-5" *ngIf="isdefault === 'Select Blood Bank Location'" style="text-align: center;">
+  <div class="col-12 col-md-6 col-lg-3" style="cursor: pointer;">
+    <div class="card my-3 p-3 position-relative">
+      <img src="assets/blood-donation.png" alt="" style="width: 60px; height: 60px; position: absolute; top: 10px; right: 10px;">
+      <div class="card-body">
+        <h4 class="card-title fw-bold fs-bold text-start" style="font-size: 20px;">{{allrequests}}</h4>
+        <h2 class="fw-bold mb-2 fs-bold text-start">Today's Requests</h2>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3" style="cursor: pointer;">
+    <div class="card my-3 p-3 position-relative">
+      <img src="assets/blood-donation.png" alt="" style="width: 60px; height: 60px; position: absolute; top: 10px; right: 10px;">
+      <div class="card-body">
+        <h4 class="card-title fw-bold fs-bold text-start" style="font-size: 20px;">{{Pendingpatients}}</h4>
+        <h2 class="fw-bold mb-2 fs-bold text-start">Today's Pending Requests</h2>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3" style="cursor: pointer;">
+    <div class="card my-3 p-3 position-relative">
+      <img src="https://cdn-icons-png.flaticon.com/512/4336/4336957.png" alt="" style="width: 60px; height: 60px; position: absolute; top: 10px; right: 10px;">
+      <div class="card-body">
+        <h4 class="card-title fw-bold fs-bold text-start" style="font-size: 20px;">{{acceptedPatients}}</h4>
+        <h2 class="card-subtitle fw-bold mb-2 fs-bold text-start">Today's Approved Requests</h2>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-3" style="cursor: pointer;">
+    <div class="card my-3 p-3 position-relative">
+      <img src="https://cdn-icons-png.flaticon.com/512/4336/4336658.png" alt="" style="width: 60px; height: 60px; position: absolute; top: 10px; right: 10px;">
+      <div class="card-body">
+        <h4 class="card-title fw-bold fs-bold text-start" style="font-size: 20px;">{{rejected}}</h4>
+        <h2 class="fw-bold mb-2 fs-bold text-start">Today's Rejected Requests</h2>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-evenly mt-5" *ngIf="isdefault === 'Select Blood Bank Location'" style="text-align: center;">
+
+<div class="col-12 col-md-6 col-lg-3 " style="cursor: pointer;">
+  <div class="card my-3 p-3 position-relative">
+    <img src="assets/Donated1.jpg" alt="" style="width: 60px; height: 60px; position: absolute; top: 10px; right: 10px;">
+    <div class="card-body">
+      <h4 class="card-title fw-bold fs-bold text-start" style="font-size: 20px;">{{currentDayDonors}}</h4>
+      <h2 class="card-subtitle fw-bold mb-2 fs-bold text-start">Today Donated People</h2>
+      <p class="card-text"></p>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 col-md-6 col-lg-3 " style="cursor: pointer;">
+  <div class="card my-3 p-3 position-relative">
+    <img src="assets/donor.png" alt="" style="width: 60px; height: 60px; position: absolute; top: 10px; right: 10px;">
+    <div class="card-body">
+      <h4 class="card-title fw-bold fs-bold text-start" style="font-size: 20px;">{{ donardetails }}</h4>
+      <h2 class="card-subtitle fw-bold mb-2 fs-bold text-start">Total Donors</h2>
+      <p class="card-text"></p>
+    </div>
+  </div>
+</div>
+</div>

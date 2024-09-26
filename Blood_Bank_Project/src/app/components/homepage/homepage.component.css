@@ -1,0 +1,52 @@
+#home>span{
+
+  display: absolute;
+  align-items: center;
+  height: 100vh;
+  width: 90%;
+
+
+}
+h1{
+text-align:center;
+}
+
+.obj{
+  margin-top: -225px;
+  margin-left: 190px;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  animation: marquee 5s linear infinite;
+}
+
+.marquee h1 {
+  animation: reverse-marquee 5s linear infinite;
+}
+
+@keyframes reverse-marquee {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

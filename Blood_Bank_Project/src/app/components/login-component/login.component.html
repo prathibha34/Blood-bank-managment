@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="login-container">
+  <div class="login-container">
+    <div class="login-image">
+      <img src="assets/login.svg">
+    </div>
+    <div class="login-modal">
+      <div class="login-form">
+        <h1 class="login-title"><mat-icon>lock</mat-icon>&nbsp;Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="userLogin()" #form="ngForm">
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <div *ngIf=" submitted || loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')" class="error-message">
+                <div *ngIf="loginForm.get('email')?.hasError('required')">
+                  <i class="fas fa-exclamation-circle"></i> Email required
+                </div>
+            </div>
+
+
+            <input type="email" class="form-control" name="username" required formControlName="email">
+            <!-- Add appropriate validation styles for invalid input -->
+          </div>
+          <div class="form-group">
+            <label for="password"><i class="fas fa-lock"></i> Password</label>
+            <div *ngIf="submitted || loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')"  class="error-message">
+              <div *ngIf="loginForm.get('password')?.hasError('required')">
+                <i class="fas fa-exclamation-circle"></i> Password required
+              </div>
+            </div>
+            <input type="password" class="form-control" name="password" required formControlName="password">
+            <!-- Add appropriate validation styles for invalid input -->
+            <!-- <div *ngIf="form.controls['password'].invalid && (form.controls['password'].dirty || form.controls['password'].touched)" class="error-message"><i class="fas fa-exclamation-circle"></i> Please enter a valid password</div> -->
+          </div>
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary me-2"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+              <button type="button" class="btn btn-danger" (click)="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

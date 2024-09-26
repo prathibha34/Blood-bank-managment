@@ -1,0 +1,42 @@
+<div style="overflow: hidden;">
+  <app-header></app-header>
+
+  <form class="container-fluid" #myform="ngForm" (ngSubmit)="search(myform)" style="overflow: hidden;">
+    <div class="form-container">
+      <div class="box">
+        <div class="box-1 justify-content-center">
+          <h2>Search Blood Stock</h2>
+        </div>
+        <div class="box-2 justify-content-center">
+          <div class="dropdown">
+            <select [(ngModel)]="type" id="bloodGroup" name="bloodGroup" class="form-select ms-4">
+              <option value="" [selected]="true">---Select Blood Group---</option>
+              <option *ngFor="let item of blood" [value]="item">{{item}}</option>
+            </select>
+          </div>
+
+          <div class="dropdown">
+            <select [(ngModel)]="city" id="city" name="city" class="form-select ms-4">
+              <option value="" [selected]="true">---Select City---</option>
+              <option *ngFor="let location of cities" value="{{location}}">{{location}}</option>
+            </select>
+          </div>
+
+          <div class="dropdown">
+            <select [(ngModel)]="areas" id="area" name="area" class="form-select ms-4">
+              <option value="" [selected]="true">Select Area</option>
+              <option *ngFor="let location of area" value="{{location}}">{{location}}</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn ms-3" style="background-color: #EA4C46; color: white;">
+            <i class="fa fa-search" aria-hidden="true"></i> Search
+          </button>
+        </div>
+        <div class="image1">
+          <img src="assets/userhome.jpg" style="max-width: 30%;">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
